@@ -6,7 +6,6 @@ public class P4{
       for (int j = i; j < 1000; j++) {
         if (isPalNum(i * j) && (i * j) > max){
           max = i * j;
-          System.out.println("Max:" + max + "\ti:" + i + "\tj:" + j);
         }
       }
     }

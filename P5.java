@@ -1,8 +1,8 @@
 public class P5{
   public static int LCM(int x, int y){
     int larger  = x>y? x: y,
-      smaller = x>y? y: x,
-      candidate = larger ;
+        smaller = x>y? y: x,
+        candidate = larger ;
     while (candidate % smaller  != 0) candidate += larger ;
       return candidate;
    }

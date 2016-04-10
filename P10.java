@@ -1,26 +1,21 @@
+import java.util.Arrays;
+import java.math.BigInteger;
 public class P10{
   public static void main(String[] args){
     boolean[] A = new boolean[2000000];
-    for (int i = 1; i < Math.sqrt(2000000); i++){
-      if (A[i])
-        for (int j = i * i; j < 2000000; j += i){
-          A[j] = false;
-        }//for
-    }//for
-
-    int acc = 0;
-    for (int i = 0; i < 2000000; i++){
-      if (!A[i])
-        acc += i;
+    Arrays.fill(A, Boolean.TRUE);
+    for (long i = 2; i < Math.sqrt(2000000); i++){
+      if (A[(int)i])
+        for (long j = i * i; j < 2000000; j += i){
+          A[(int)j] = false;
+        }
     }
-    System.out.println(acc);
-  }//main
-  public static void mainOld(String[] args){
-    long acc = 0;
+
+    BigInteger acc = new BigInteger("0");
     for (long i = 2; i < 2000000; i++){
-      if (isPrime(i)){
-        acc += i;
-//  System.out.println(i + "is prime");
+      if (A[(int)i]){
+        System.out.println("i:"+i+" is true");
+        acc=acc.add(new BigInteger(""+ i));
       }
     }
     System.out.println(acc);

@@ -38,9 +38,8 @@ public class P11{
         if (curr > largest) largest = curr;
       }
     }
-//new, albeit more primitive solution
 
-//left to right, up to down diag
+    //left to right, up to down diag
     for (int i = 0; i < noCols; i++){
       for (int j = 0; j < noRows; j++){
         if (i+3 < noCols && j+3 < noCols){
@@ -50,7 +49,7 @@ public class P11{
       }
     }
 
-//left to right, down to up diag
+    //left to right, down to up diag
     for (int i = 0; i < noCols; i++){
       for (int j = noRows - 1; j > 0; j--){
         if (i+3 < noCols && j-3 < noCols && j-3 > 0 ){
@@ -60,27 +59,6 @@ public class P11{
       }
     }
 
-
-/*  old confusing shit
-    //then left to right, up to down diag
-    for (int i = 3; i < noRows - 3; i++){
-      for (int j = i; j < noRows - i; j++){//we have begun to make the assumption
-					   //that noRows == noCols
-        int curr = mat[i][j] * mat[i+1][j+1] * mat[i+2][j+2] * mat[i+3][j+3];
-        if (curr > largest) largest = curr;
-      }
-    }
-
-/////////THIS BIT STILL NEEDS DOING
-    //then left to right, down to up diag
-    for (int i = 3; i < noRows - 3; i++){
-      for (int j = i; j < noRows - i; j++){//we have begun to make the assumption
- 					   //that noRows == noCols
-        int curr = mat[i][noRows - j] * mat[i+1][noRows - j - 1] * mat[i+2][noRows-j-2] * mat[i+3][noRows -j -3];
-        if (curr > largest) largest = curr;
-      }
-    }
-*/
     System.out.println(largest);
   }
 }

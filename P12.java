@@ -4,7 +4,7 @@
  * the static variable threshold
  */
 
-public class P12_2{
+public class P12{
 
   public static boolean debug=false;
 

@@ -1,5 +1,6 @@
-public class P8r1{
-   public String str = "73167176531330624919225119674426574742355349194934"+
+import java.math.BigInteger;
+public class P8{
+  public static String str = "73167176531330624919225119674426574742355349194934"+
                  "96983520312774506326239578318016984801869478851843"+
                  "85861560789112949495459501737958331952853208805511"+
                  "12540698747158523863050715693290963295227443043557"+
@@ -19,26 +20,26 @@ public class P8r1{
                  "84580156166097919133875499200524063689912560717606"+
                  "05886116467109405077541002256983155200055935729725"+
                  "71636269561882670428252483600823257530420752963450";
-   public int[] ints = new int[str.length];
+  public static int[] ints = new int[str.length()];
 
   public static void main(String[] args){
     //convert this enormous string to an int array
-    for (int i = 0; i < str.length; i++){
+    for (int i = 0; i < str.length(); i++){
       ints[i] = str.charAt(i) - 48;
     }
     //then loop through all numbers save the last 12, using each as the first
     //in a set of 13
-    int largest = 0;
-    for (int offset = 0; offset < str.length - 12; offset++){
-      int acc = 1;
+    BigInteger largest = new BigInteger("0");
+    for (int offset = 0; offset < str.length() - 12; offset++){
+      BigInteger acc = new BigInteger("1");
       //loop 13 times
       for (int i = 0; i < 13; i++){
-         acc *= ints[offest + i];
+         acc = acc.multiply(new BigInteger(""+ints[offset + i]));
       }
-      if (acc > largest){
+      if (acc.compareTo(largest)==1){
         largest = acc;
       }
     }
-    System.out.println("largest number: " + acc);
+    System.out.println("largest number: " + largest);
   }
 }
