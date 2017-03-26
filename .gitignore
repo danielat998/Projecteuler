@@ -1,1 +1,5 @@
 *.class
+#Vim stuff:
+*~
+*.swp
+*.swo
